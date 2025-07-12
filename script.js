@@ -653,41 +653,7 @@ window.addEventListener('load', () => {
     }, 1000);
 });
 
-// Add cursor trail effect
-let mouseX = 0;
-let mouseY = 0;
-let cursorTrail = [];
 
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    // Create trail element
-    const trail = document.createElement('div');
-    trail.style.cssText = `
-        position: fixed;
-        width: 6px;
-        height: 6px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        left: ${mouseX - 3}px;
-        top: ${mouseY - 3}px;
-        opacity: 0.6;
-        transition: opacity 0.3s ease;
-    `;
-    
-    document.body.appendChild(trail);
-    cursorTrail.push(trail);
-    
-    // Remove old trail elements
-    if (cursorTrail.length > 10) {
-        const oldTrail = cursorTrail.shift();
-        oldTrail.style.opacity = '0';
-        setTimeout(() => oldTrail.remove(), 300);
-    }
-});
 
 // Performance optimization: Throttle scroll events
 function throttle(func, limit) {
