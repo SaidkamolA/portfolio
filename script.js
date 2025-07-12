@@ -176,26 +176,25 @@ if (skillsSection) {
 
 // Contact form handling
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         // Get form data
-        const formData = new FormData(contactForm);
         const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
+        const phone = contactForm.querySelector('input[type="tel"]').value;
         const subject = contactForm.querySelector('input[placeholder="Тема проекта"]').value;
         const projectType = contactForm.querySelector('select').value;
         const message = contactForm.querySelector('textarea').value;
         const agreement = contactForm.querySelector('input[type="checkbox"]').checked;
         
         // Simple validation
-        if (!name || !email || !subject || !projectType || !message) {
+        if (!name || !phone || !subject || !projectType || !message) {
             showNotification('Пожалуйста, заполните все обязательные поля', 'error');
             return;
         }
         
-        if (!isValidEmail(email)) {
-            showNotification('Пожалуйста, введите корректный email', 'error');
+        if (!isValidPhone(phone)) {
+            showNotification('Пожалуйста, введите корректный номер телефона', 'error');
             return;
         }
         
@@ -204,20 +203,108 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Отправляем сообщение...', 'info');
+        // Show loading state
+        const submitBtn = contactForm.querySelector('.btn-primary');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+        submitBtn.disabled = true;
         
-        setTimeout(() => {
-            showNotification('Сообщение успешно отправлено! Я свяжусь с вами в ближайшее время.', 'success');
-            contactForm.reset();
-        }, 2000);
+        try {
+            // Prepare message for Telegram
+            const telegramMessage = `🔔 *Новое сообщение с сайта*
+
+👤 *Имя:* ${name}
+📱 *Телефон:* ${phone}
+📋 *Тема:* ${subject}
+🛠 *Тип проекта:* ${projectType}
+💬 *Сообщение:*
+${message}
+
+📅 *Дата:* ${new Date().toLocaleString('ru-RU')}
+🌐 *Источник:* Портфолио сайт`;
+            
+            // Telegram Bot API - отправка напрямую в бот
+            const botToken = '7590789624:AAEEQd90l1aE23nlaEkRaNSg0p6jZ3_FmZk'; // Замените на ваш токен
+            const chatId = '7987962865'; // Замените на ваш chat_id
+            
+            const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: telegramMessage,
+                    parse_mode: 'Markdown'
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok && result.ok) {
+                showNotification('✅ Сообщение успешно отправлено разработчику!', 'success');
+                contactForm.reset();
+            } else {
+                throw new Error(`Telegram API Error: ${result.description || 'Unknown error'}`);
+            }
+            
+        } catch (error) {
+            console.error('Error sending to Telegram:', error);
+            showNotification('❌ Ошибка отправки. Попробуйте позже или свяжитесь напрямую.', 'error');
+        } finally {
+            // Restore button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+// Phone formatting function
+function formatPhoneNumber(input) {
+    let value = input.value.replace(/\D/g, ''); // Убираем все кроме цифр
+    
+    if (value.length > 0) {
+        // Если номер начинается с 998, добавляем +
+        if (value.startsWith('998')) {
+            value = '+' + value;
+        } else if (value.startsWith('98')) {
+            value = '+9' + value;
+        } else if (value.startsWith('8')) {
+            value = '+998' + value.substring(1);
+        } else if (!value.startsWith('+')) {
+            value = '+998' + value;
+        }
+        
+        // Форматируем номер с пробелами: +998 99 910 37 16
+        let formatted = '';
+        const digits = value.replace(/\D/g, ''); // Только цифры
+        
+        if (digits.length >= 1) {
+            formatted = '+998';
+        }
+        if (digits.length >= 2) {
+            formatted += ' ' + digits.substring(0, 2);
+        }
+        if (digits.length >= 5) {
+            formatted += ' ' + digits.substring(2, 5);
+        }
+        if (digits.length >= 7) {
+            formatted += ' ' + digits.substring(5, 7);
+        }
+        if (digits.length >= 9) {
+            formatted += ' ' + digits.substring(7, 9);
+        }
+        
+        input.value = formatted;
+    }
+}
+
+// Phone validation
+function isValidPhone(phone) {
+    // Убираем все пробелы и проверяем формат
+    const cleanPhone = phone.replace(/\s/g, '');
+    // Проверяем что номер начинается с +998 и содержит 9 цифр после кода страны
+    return /^\+998\d{9}$/.test(cleanPhone);
 }
 
 // Download CV function
@@ -230,12 +317,11 @@ function downloadCV() {
         
         // Create a dummy CV file for download
         const cvContent = `
-Саид Камол - Премиум веб-разработчик
+Saidkamolxon fullstack developer 
 
 ОБРАЗОВАНИЕ:
-- Магистр компьютерных наук, МГУ им. Ломоносова
-- AWS Certified Developer
-- Google Cloud Professional
+- INHA UNIVERSITY
+- ITSTEP ACADEMY
 
 НАВЫКИ:
 Frontend: React.js (95%), Vue.js (90%), Angular (85%), TypeScript (92%)
@@ -257,9 +343,9 @@ Backend: Node.js (93%), Python (88%), PHP (85%), Java (80%)
 - AI Chat Assistant (React, Python, OpenAI)
 
 КОНТАКТЫ:
-Email: said.kamol@example.com
-Телефон: +7 (999) 123-45-67
-GitHub: github.com/saidkamol
+Email: saidkamolagzamov7@gmail.com
+Телефон: +998 95 001 37 16 
+GitHub: github.com/Saidkamol......
 LinkedIn: linkedin.com/in/saidkamol
         `;
         
@@ -267,7 +353,7 @@ LinkedIn: linkedin.com/in/saidkamol
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'Саид_Камол_CV.txt';
+        a.download = 'Saidkamolxon_CV.txt';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -838,6 +924,23 @@ function initMobileFormValidation() {
     }
 }
 
+// Initialize phone formatting
+function initPhoneFormatting() {
+    const phoneInput = document.querySelector('input[type="tel"]');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+            formatPhoneNumber(this);
+        });
+        
+        // Устанавливаем курсор после +998 при фокусе
+        phoneInput.addEventListener('focus', function() {
+            if (this.value === '+998 ') {
+                this.setSelectionRange(5, 5); // Ставим курсор после +998 
+            }
+        });
+    }
+}
+
 // Initialize all enhanced features
 document.addEventListener('DOMContentLoaded', function() {
     // Existing initializations
@@ -851,6 +954,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initParticles();
     
     // New enhanced features
+    initPhoneFormatting();
     animateEducationLogos();
     initMobileMenu();
     initTouchOptimizations();
