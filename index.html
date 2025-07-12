@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saidkamolxon - Премиум веб-разработчик | Портфолио</title>
+    <meta name="description" content="Saidkamolxon - эксперт веб-разработки с 2+ лет опыта. Создаю премиум сайты, приложения и цифровые решения для бизнеса.">
+    <meta name="keywords" content="веб-разработчик, портфолио, React, Django, Python, FastAPI, Telegram Bot, мобильные приложения">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Saidkamolxon</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#experience">Опыт</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="particles"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span>🚀 Доступен для проектов</span>
+                </div>
+                <h1 class="hero-title">
+                    Привет, я <span class="gradient-text">Saidkamolxon</span>
+                </h1>
+                <h2 class="hero-subtitle">Full-Stack разработчик & Telegram Bot эксперт</h2>
+                <p class="hero-description">Создаю инновационные веб-приложения, мобильные приложения и Telegram боты с использованием современных технологий. Специализируюсь на Python, React и Telegram Bot API.</p>
+                <p class="hero-education">🎓 Студент <strong>INHA UNIVERSITY</strong> | Сертифицированный разработчик <strong>ITSTEP ACADEMY</strong></p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Проектов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Лет опыта</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">28+</span>
+                        <span class="stat-label">Довольных клиентов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Telegram ботов</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="scrollToSection('portfolio')">
+                        <i class="fas fa-eye"></i>
+                        Посмотреть работы
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('contact')">
+                        <i class="fas fa-paper-plane"></i>
+                        Начать проект
+                    </button>
+                    <button class="btn-outline" onclick="downloadCV()">
+                        <i class="fas fa-download"></i>
+                        Скачать CV
+                    </button>
+                </div>
+                
+                <div class="hero-social">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://gulqand.uz" target="_blank" class="social-link website-social"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Saidkamolxon - Веб-разработчик">
+                        <div class="image-overlay">
+                            <div class="tech-badge">Python</div>
+                            <div class="tech-badge">React</div>
+                            <div class="tech-badge">Django</div>
+                            <div class="tech-badge">Telegram Bot</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-cards">
+                    <div class="floating-card">
+                        <div class="card-content">
+                            <i class="fas fa-code"></i>
+                            <h3>Full-Stack</h3>
+                            <p>Python & React</p>
+                        </div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-content">
+                            <i class="fab fa-telegram"></i>
+                            <h3>Telegram Bots</h3>
+                            <p>aiogram & python-telegram-bot</p>
+                        </div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-content">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Мобильные приложения</h3>
+                            <p>React Native</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Обо мне</h2>
+                <p>Познакомьтесь с моим профессиональным путем и страстью к созданию цифровых решений</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-intro">
+                        <h3>Привет! 👋</h3>
+                        <p>Я <strong>Saidkamolxon</strong>, Full-Stack разработчик с более чем 2-летним опытом создания инновационных цифровых решений. Специализируюсь на Python разработке, создании Telegram ботов и веб-приложений с использованием React.</p>
+                    </div>
+                    
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Образование</h4>
+                                <div class="education-item">
+                                    <img src="inha.png" alt="INHA UNIVERSITY" class="education-logo">
+                                    <div>
+                                        <p><strong>INHA UNIVERSITY</strong> - Студент IT направления, активно изучаю современные технологии</p>
+                                    </div>
+                                </div>
+                                <div class="education-item">
+                                    <img src="academy.jpg" alt="ITSTEP ACADEMY" class="education-logo">
+                                    <div>
+                                        <p><strong>ITSTEP ACADEMY</strong> - Профессиональное обучение веб-разработке и программированию</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>Сертификации</h4>
+                                <p>Python Developer, React Developer, Telegram Bot Developer</p>
+                                <p>ITSTEP ACADEMY - Web Development Certificate</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>Языки</h4>
+                                <p>Русский (родной), Английский (B2), Узбекский (родной)</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Локация</h4>
+                                <p>Узбекистан (готов к удаленной работе)</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-link"></i>
+                            <div>
+                                <h4>Мой сайт</h4>
+                                <p><a href="https://gulqand.uz" target="_blank" class="website-link">gulqand.uz</a> - Персональный веб-сайт</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-philosophy">
+                        <h4>Моя философия</h4>
+                        <p>"Каждый проект - это возможность создать что-то полезное и инновационное. Я верю, что качественный код должен быть не только функциональным, но и понятным, масштабируемым и современным."</p>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <img src="me.jpg" alt="Рабочий процесс">
+                        <div class="experience-badge">
+                            <span class="years">2+</span>
+                            <span class="text">Лет опыта</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Мои навыки</h2>
+                <p>Технологический стек, который я использую для создания премиум решений</p>
+            </div>
+            
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3><i class="fab fa-python"></i> Backend & Python</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="Python">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Python</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Django">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Django</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="FastAPI">
+                            <div class="skill-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>FastAPI</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="SQL">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>SQL</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fab fa-react"></i> Frontend & Mobile</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="React">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>React</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%"></div>
+                                </div>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="React Native">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>React Native</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="JavaScript">
+                            <div class="skill-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="HTML/CSS">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>HTML/CSS</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fab fa-telegram"></i> Telegram & DevOps</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="Telegram Bot">
+                            <div class="skill-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Telegram Bot API</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 93%"></div>
+                                </div>
+                                <span class="skill-percentage">93%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="aiogram">
+                            <div class="skill-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>aiogram</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Docker">
+                            <div class="skill-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Docker</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="python-telegram-bot">
+                            <div class="skill-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>python-telegram-bot</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Мои проекты</h2>
+                <p>Лучшие работы, которые демонстрируют мой опыт и креативность</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Все проекты</button>
+                <button class="filter-btn" data-filter="web">Веб-сайты</button>
+                <button class="filter-btn" data-filter="bot">Telegram боты</button>
+                <button class="filter-btn" data-filter="mobile">Мобильные приложения</button>
+                <button class="filter-btn" data-filter="api">API</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web api">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" alt="E-commerce Platform">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>E-commerce Platform</h3>
+                                <p>Полнофункциональная платформа для интернет-магазина с API и админ-панелью</p>
+                                <div class="tech-stack">
+                                    <span>Django</span>
+                                    <span>React</span>
+                                    <span>SQL</span>
+                                    <span>Docker</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i> Код</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="bot">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500" alt="Telegram Bot">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>AI Assistant Bot</h3>
+                                <p>Интеллектуальный Telegram бот с интеграцией ChatGPT и полезными функциями</p>
+                                <div class="tech-stack">
+                                    <span>aiogram</span>
+                                    <span>Python</span>
+                                    <span>OpenAI API</span>
+                                    <span>SQLite</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i> Код</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web api">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500" alt="FastAPI Dashboard">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>FastAPI Dashboard</h3>
+                                <p>Современное веб-приложение с REST API для управления данными</p>
+                                <div class="tech-stack">
+                                    <span>FastAPI</span>
+                                    <span>React</span>
+                                    <span>PostgreSQL</span>
+                                    <span>Docker</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i> Код</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="mobile">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500" alt="Mobile App">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Task Manager App</h3>
+                                <p>Мобильное приложение для управления задачами с синхронизацией</p>
+                                <div class="tech-stack">
+                                    <span>React Native</span>
+                                    <span>Python</span>
+                                    <span>FastAPI</span>
+                                    <span>SQLite</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i> Код</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="bot">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500" alt="Restaurant Bot">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Restaurant Bot</h3>
+                                <p>Telegram бот для заказа еды с интеграцией платежной системы</p>
+                                <div class="tech-stack">
+                                    <span>python-telegram-bot</span>
+                                    <span>Django</span>
+                                    <span>SQL</span>
+                                    <span>Stripe</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i> Код</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Portfolio Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Personal Portfolio</h3>
+                                <p>Современный портфолио сайт с анимациями и адаптивным дизайном</p>
+                                <div class="tech-stack">
+                                    <span>React</span>
+                                    <span>HTML/CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>Responsive</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i> Код</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-cta">
+                <h3>Заинтересованы в сотрудничестве?</h3>
+                <p>Давайте обсудим ваш проект и создадим что-то удивительное вместе!</p>
+                <button class="btn-primary" onclick="scrollToSection('contact')">
+                    <i class="fas fa-rocket"></i>
+                    Начать проект
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Мои услуги</h2>
+                <p>Полный спектр услуг для создания премиум цифровых решений</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Веб-разработка</h3>
+                    <p>Создание современных веб-сайтов и веб-приложений с использованием Django и React</p>
+                    <ul>
+                        <li>Django / FastAPI</li>
+                        <li>React.js / JavaScript</li>
+                        <li>HTML/CSS</li>
+                        <li>REST API</li>
+                        <li>SQL базы данных</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">от $2,000</span>
+                        <span class="duration">за проект</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3>Telegram боты</h3>
+                    <p>Разработка интеллектуальных Telegram ботов с различным функционалом</p>
+                    <ul>
+                        <li>aiogram / python-telegram-bot</li>
+                        <li>ChatGPT интеграция</li>
+                        <li>Платежные системы</li>
+                        <li>База данных</li>
+                        <li>Автоматизация</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">от $500</span>
+                        <span class="duration">за бота</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Мобильные приложения</h3>
+                    <p>Разработка кроссплатформенных приложений для iOS и Android</p>
+                    <ul>
+                        <li>React Native</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>API интеграция</li>
+                        <li>Push уведомления</li>
+                        <li>Офлайн режим</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">от $3,000</span>
+                        <span class="duration">за приложение</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>API разработка</h3>
+                    <p>Создание REST API и микросервисов с использованием FastAPI и Django</p>
+                    <ul>
+                        <li>FastAPI / Django REST</li>
+                        <li>PostgreSQL / SQLite</li>
+                        <li>Docker контейнеризация</li>
+                        <li>JWT аутентификация</li>
+                        <li>Документация API</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">от $1,500</span>
+                        <span class="duration">за API</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>DevOps & Развертывание</h3>
+                    <p>Настройка CI/CD, контейнеризация и развертывание приложений</p>
+                    <ul>
+                        <li>Docker / Docker Compose</li>
+                        <li>GitHub Actions</li>
+                        <li>VPS / Cloud хостинг</li>
+                        <li>Nginx / Gunicorn</li>
+                        <li>SSL сертификаты</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">от $800</span>
+                        <span class="duration">за настройку</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Консультации & Поддержка</h3>
+                    <p>Техническая поддержка и консультации по развитию ваших проектов</p>
+                    <ul>
+                        <li>Code review</li>
+                        <li>Архитектура проектов</li>
+                        <li>Оптимизация производительности</li>
+                        <li>Обучение команды</li>
+                        <li>Техническая поддержка</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">от $50</span>
+                        <span class="duration">за час</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Опыт работы</h2>
+                <p>Мой профессиональный путь в мире веб-разработки</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Freelance Full-Stack Developer</h3>
+                            <span class="company">Удаленная работа</span>
+                            <span class="period">2023 - настоящее время</span>
+                        </div>
+                        <p>Разрабатываю веб-приложения, Telegram боты и мобильные приложения для клиентов по всему миру. Создал более 50 проектов различной сложности.</p>
+                        <div class="timeline-tech">
+                            <span>Python</span>
+                            <span>React</span>
+                            <span>Django</span>
+                            <span>Telegram Bot</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Python Developer</h3>
+                            <span class="company">Стартап проект</span>
+                            <span class="period">2022 - 2023</span>
+                        </div>
+                        <p>Участвовал в разработке веб-приложения для управления бизнес-процессами. Создавал API, работал с базами данных и интегрировал внешние сервисы.</p>
+                        <div class="timeline-tech">
+                            <span>FastAPI</span>
+                            <span>PostgreSQL</span>
+                            <span>Docker</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Telegram Bot Developer</h3>
+                            <span class="company">Персональные проекты</span>
+                            <span class="period">2022 - 2023</span>
+                        </div>
+                        <p>Создал более 15 Telegram ботов различного назначения: от простых информационных до сложных с интеграцией AI и платежных систем.</p>
+                        <div class="timeline-tech">
+                            <span>aiogram</span>
+                            <span>python-telegram-bot</span>
+                            <span>OpenAI API</span>
+                            <span>SQLite</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Frontend Developer</h3>
+                            <span class="company">Учебные проекты</span>
+                            <span class="period">2021 - 2022</span>
+                        </div>
+                        <p>Изучал современные технологии фронтенд-разработки, создавал адаптивные веб-сайты и изучал React экосистему.</p>
+                        <div class="timeline-tech">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>ITSTEP ACADEMY</h3>
+                            <span class="company">Web Development Course</span>
+                            <span class="period">2022 - 2023</span>
+                        </div>
+                        <p>Прошел профессиональный курс веб-разработки, изучил современные технологии и получил сертификат. Создал несколько проектов в рамках обучения.</p>
+                        <div class="timeline-tech">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>INHA UNIVERSITY</h3>
+                            <span class="company">Computer Science</span>
+                            <span class="period">2021 - настоящее время</span>
+                        </div>
+                        <p>Студент факультета компьютерных наук, изучаю программирование, алгоритмы и структуры данных. Активно участвую в IT проектах университета.</p>
+                        <div class="timeline-tech">
+                            <span>Python</span>
+                            <span>Java</span>
+                            <span>Algorithms</span>
+                            <span>Data Structures</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Свяжитесь со мной</h2>
+                <p>Готовы создать что-то удивительное? Давайте обсудим ваш проект!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>saidkamolxon@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>+998 (99) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Адрес</h4>
+                            <p>Узбекистан (готов к удаленной работе)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Время работы</h4>
+                            <p>Пн-Пт: 9:00 - 18:00 (GMT+5)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <h4>Социальные сети</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Тема проекта" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Выберите тип проекта</option>
+                            <option value="web">Веб-сайт</option>
+                            <option value="bot">Telegram бот</option>
+                            <option value="mobile">Мобильное приложение</option>
+                            <option value="api">API разработка</option>
+                            <option value="consultation">Консультация</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Расскажите о вашем проекте, требованиях и бюджете" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            Я согласен с обработкой персональных данных
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Отправить сообщение
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Saidkamolxon</h3>
+                    <p>Full-Stack разработчик, создающий инновационные цифровые решения для бизнеса</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://gulqand.uz" target="_blank"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="#services">Веб-разработка</a></li>
+                        <li><a href="#services">Telegram боты</a></li>
+                        <li><a href="#services">Мобильные приложения</a></li>
+                        <li><a href="#services">API разработка</a></li>
+                        <li><a href="#services">DevOps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Портфолио</h4>
+                    <ul>
+                        <li><a href="#portfolio">Веб-сайты</a></li>
+                        <li><a href="#portfolio">Telegram боты</a></li>
+                        <li><a href="#portfolio">Мобильные приложения</a></li>
+                        <li><a href="#portfolio">API проекты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><a href="mailto:saidkamolxon@example.com">Email</a></li>
+                        <li><a href="tel:+998991234567">Телефон</a></li>
+                        <li><a href="#contact">Форма связи</a></li>
+                        <li><a href="https://t.me/saidkamolxon">Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Saidkamolxon. Все права защищены. | Создано с ❤️ для премиум клиентов</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
