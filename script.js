@@ -933,6 +933,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) btn.addEventListener('click', toggleTheme);
 });
 
+// --- MULTILANGUAGE LOGIC ---
+async function loadTranslations() {
+  const res = await fetch('translations.json');
+  return await res.json();
+}
+
+function setLanguage(lang, translations) {
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  document.getElementById('lang-ru').classList.toggle('active', lang === 'ru');
+  document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const translations = await loadTranslations();
+  const savedLang = localStorage.getItem('lang') || 'ru';
+  setLanguage(savedLang, translations);
+  document.getElementById('lang-ru').onclick = () => setLanguage('ru', translations);
+  document.getElementById('lang-en').onclick = () => setLanguage('en', translations);
+});
+
 // Initialize all enhanced features
 document.addEventListener('DOMContentLoaded', function() {
     // Existing initializations
@@ -1018,34 +1044,7 @@ const quotes = [
     }
 ];
 
-let currentQuoteIndex = 0;
-
-function changeQuote() {
-    const quoteText = document.getElementById('quoteText');
-    const quoteAuthor = document.getElementById('quoteAuthor');
-    
-    if (!quoteText || !quoteAuthor) return;
-    
-    // Fade out
-    quoteText.style.opacity = '0';
-    quoteAuthor.style.opacity = '0';
-    
-    setTimeout(() => {
-        // Change quote
-        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-        const newQuote = quotes[currentQuoteIndex];
-        
-        quoteText.textContent = `"${newQuote.text}"`;
-        quoteAuthor.textContent = `— ${newQuote.author}`;
-        
-        // Fade in
-        quoteText.style.opacity = '1';
-        quoteAuthor.style.opacity = '1';
-    }, 300);
-}
-
-// Auto change quote every 10 seconds
-setInterval(changeQuote, 10000);
+// Старая функциональность цитат удалена - теперь используется новая система
 
 
 
@@ -1205,3 +1204,21 @@ function getDiscount() {
         showSuccessAnimation();
     }, 500);
 }
+
+// Quote functionality for the new quote section
+const quoteData = [
+    {
+        text: "Успех — это способность шагать от одной неудачи к другой, не теряя энтузиазма.",
+        author: "Уинстон Черчилль",
+        title: "Премьер-министр Великобритании"
+    }
+];
+
+// Убираем навигацию и автоматическое переключение, так как цитата одна
+document.addEventListener('DOMContentLoaded', () => {
+    // Скрываем навигационные элементы
+    const quoteNav = document.querySelector('.quote-navigation');
+    if (quoteNav) {
+        quoteNav.style.display = 'none';
+    }
+});

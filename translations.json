@@ -1,0 +1,40 @@
+{
+  "ru": {
+    "nav_home": "Главная",
+    "nav_about": "Обо мне",
+    "nav_skills": "Навыки",
+    "nav_portfolio": "Мои проекты Saidkamolxon",
+    "nav_services": "Услуги Saidkamolxon",
+    "nav_experience": "Опыт",
+    "nav_contact": "Контакты",
+    "hero_title": "Привет, я <span class=\"gradient-text\">Saidkamolxon</span>",
+    "hero_subtitle": "Senior Full-Stack Developer & AI Enthusiast",
+    "hero_description": "Создаю инновационные веб-приложения, мобильные приложения и AI решения с использованием современных технологий. Специализируюсь на React, Node.js и Python разработке.",
+    "hero_education": "🎓 Студент <strong>INHA UNIVERSITY</strong> | Сертифицированный разработчик <strong>ITSTEP ACADEMY</strong>",
+    "footer_about": "Full-Stack разработчик с 2+ летним опытом. Специализируюсь на Python, React и Telegram ботах. Создаю инновационные цифровые решения для бизнеса и стартапов.",
+    "footer_services": "Услуги Saidkamolxon",
+    "footer_projects": "Проекты Saidkamolxon",
+    "footer_contact": "Контакты для связи",
+    "footer_order": "Заказать проект через форму",
+    "footer_gulqand": "Перейти на gulqand.uz"
+  },
+  "en": {
+    "nav_home": "Home",
+    "nav_about": "About",
+    "nav_skills": "Skills",
+    "nav_portfolio": "My Projects",
+    "nav_services": "Services",
+    "nav_experience": "Experience",
+    "nav_contact": "Contact",
+    "hero_title": "Hi, I'm <span class=\"gradient-text\">Saidkamolxon</span>",
+    "hero_subtitle": "Senior Full-Stack Developer & AI Enthusiast",
+    "hero_description": "I create innovative web applications, mobile apps, and AI solutions using modern technologies. I specialize in React, Node.js, and Python development.",
+    "hero_education": "🎓 Student at <strong>INHA UNIVERSITY</strong> | Certified developer at <strong>ITSTEP ACADEMY</strong>",
+    "footer_about": "Full-Stack developer with 2+ years of experience. Specializing in Python, React, and Telegram bots. Creating innovative digital solutions for businesses and startups.",
+    "footer_services": "Services",
+    "footer_projects": "Projects",
+    "footer_contact": "Contact Information",
+    "footer_order": "Order a project via form",
+    "footer_gulqand": "Go to gulqand.uz"
+  }
+} 

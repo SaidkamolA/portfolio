@@ -499,6 +499,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
 }
 
 .image-overlay {
@@ -2726,6 +2727,7 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 280px;
         width: 100%;
         object-fit: cover;
+        object-position: center top;
         border-radius: 20px;
         transition: transform 0.3s ease;
     }
@@ -3386,6 +3388,7 @@ html {
         max-width: 450px;
         width: 100%;
         object-fit: cover;
+        object-position: center top;
         border-radius: 25px;
         display: block;
         transition: transform 0.3s ease;
@@ -3436,6 +3439,7 @@ html {
         max-width: 420px;
         width: 100%;
         object-fit: cover;
+        object-position: center top;
         border-radius: 25px;
         transition: transform 0.3s ease;
     }
@@ -3481,10 +3485,11 @@ html {
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
     }
     .image-container img {
-        height: 2px;
+        height: 250px;
         max-width: 320px;
         width: 100%;
         object-fit: cover;
+        object-position: center top;
         border-radius: 22px;
         transition: transform 0.3s ease;
     }
@@ -3986,4 +3991,10 @@ body, .navbar, .container, .section, .footer, .about, .skills, .portfolio, .serv
   color: #fff;
   box-shadow: 0 4px 16px #a78bfa33;
 }
+
+/* Дополнительные стили для правильного отображения фото с лицом */
+.image-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
 
