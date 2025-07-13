@@ -37,11 +37,12 @@ function scrollToSection(sectionId) {
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        navbar.style.background = isDark ? 'rgba(24, 24, 36, 0.98)' : 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = isDark ? '0 2px 20px rgba(0, 0, 0, 0.3)' : '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = isDark ? 'rgba(24, 24, 36, 0.95)' : 'rgba(255, 255, 255, 0.95)';
         navbar.style.boxShadow = 'none';
     }
     
@@ -907,6 +908,31 @@ function initPhoneFormatting() {
     }
 }
 
+// Theme toggle logic
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    const icon = document.querySelector('.theme-icon');
+    if (icon) {
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    setTheme(current === 'dark' ? 'light' : 'dark');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Init theme from localStorage or system
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(saved ? saved : (prefersDark ? 'dark' : 'light'));
+    // Add event
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', toggleTheme);
+});
+
 // Initialize all enhanced features
 document.addEventListener('DOMContentLoaded', function() {
     // Existing initializations
@@ -947,3 +973,235 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 });
+
+// Quote system
+const quotes = [
+    {
+        text: "Лучший код — это тот, который легко читать и понимать. Пишите код так, как будто его будет поддерживать психопат, который знает, где вы живете.",
+        author: "Джон Вудс"
+    },
+    {
+        text: "Программирование — это искусство создания чего-то из ничего и затем продажи этого.",
+        author: "Митч Кейпор"
+    },
+    {
+        text: "Любой дурак может написать код, который компьютер поймет. Хорошие программисты пишут код, который люди могут понять.",
+        author: "Мартин Фаулер"
+    },
+    {
+        text: "Иногда лучшее, что можно сделать — это начать заново.",
+        author: "Стив Джобс"
+    },
+    {
+        text: "Код никогда не лжет, комментарии иногда.",
+        author: "Рон Джеффрис"
+    },
+    {
+        text: "Программирование — это не о том, чтобы знать все. Это о том, чтобы знать, где найти ответ.",
+        author: "Джон Зак"
+    },
+    {
+        text: "Первый принцип: вы можете не знать, что делаете. Это нормально.",
+        author: "Линда Райсман"
+    },
+    {
+        text: "Технологии — это то, что уже было изобретено, когда вы родились.",
+        author: "Алан Кей"
+    },
+    {
+        text: "Будущее принадлежит тем, кто верит в красоту своих мечтаний.",
+        author: "Элеонора Рузвельт"
+    },
+    {
+        text: "Успех — это способность шагать от одной неудачи к другой, не теряя энтузиазма.",
+        author: "Уинстон Черчилль"
+    }
+];
+
+let currentQuoteIndex = 0;
+
+function changeQuote() {
+    const quoteText = document.getElementById('quoteText');
+    const quoteAuthor = document.getElementById('quoteAuthor');
+    
+    if (!quoteText || !quoteAuthor) return;
+    
+    // Fade out
+    quoteText.style.opacity = '0';
+    quoteAuthor.style.opacity = '0';
+    
+    setTimeout(() => {
+        // Change quote
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        const newQuote = quotes[currentQuoteIndex];
+        
+        quoteText.textContent = `"${newQuote.text}"`;
+        quoteAuthor.textContent = `— ${newQuote.author}`;
+        
+        // Fade in
+        quoteText.style.opacity = '1';
+        quoteAuthor.style.opacity = '1';
+    }, 300);
+}
+
+// Auto change quote every 10 seconds
+setInterval(changeQuote, 10000);
+
+
+
+// Calculator Logic
+const prices = {
+    website: { simple: 500, medium: 1200, complex: 2500, expert: 5000 },
+    app: { simple: 800, medium: 2000, complex: 4000, expert: 8000 },
+    bot: { simple: 200, medium: 500, complex: 1000, expert: 2000 },
+    api: { simple: 400, medium: 1000, complex: 2500, expert: 5000 },
+    custom: { simple: 1000, medium: 2500, complex: 5000, expert: 10000 }
+};
+
+const addons = {
+    design: 300,
+    seo: 200,
+    support: 150,
+    hosting: 100
+};
+
+function calculatePrice() {
+    const projectType = document.getElementById('projectType').value;
+    const complexity = document.getElementById('complexity').value;
+    const timeline = parseInt(document.getElementById('timeline').value) || 14;
+    
+    if (!projectType || !complexity) {
+        showPlaceholder();
+        return;
+    }
+    
+    let basePrice = prices[projectType][complexity];
+    
+    // Сложность влияет на цену
+    const complexityMultiplier = {
+        simple: 1,
+        medium: 1.2,
+        complex: 1.5,
+        expert: 2
+    };
+    
+    basePrice *= complexityMultiplier[complexity];
+    
+    // Сроки влияют на цену
+    const timelineMultiplier = timeline <= 7 ? 1.3 : timeline <= 14 ? 1.1 : 1;
+    basePrice *= timelineMultiplier;
+    
+    // Дополнительные функции
+    let addonsPrice = 0;
+    const addonItems = [];
+    
+    if (document.getElementById('design').checked) {
+        addonsPrice += addons.design;
+        addonItems.push('Дизайн');
+    }
+    if (document.getElementById('seo').checked) {
+        addonsPrice += addons.seo;
+        addonItems.push('SEO');
+    }
+    if (document.getElementById('support').checked) {
+        addonsPrice += addons.support;
+        addonItems.push('Поддержка');
+    }
+    if (document.getElementById('hosting').checked) {
+        addonsPrice += addons.hosting;
+        addonItems.push('Хостинг');
+    }
+    
+    const totalPrice = basePrice + addonsPrice;
+    
+    displayPrice(totalPrice, basePrice, addonsPrice, addonItems, timeline);
+}
+
+function displayPrice(total, base, addons, addonItems, timeline) {
+    const resultDiv = document.getElementById('calculatorResult');
+    
+    const complexityText = {
+        simple: 'Простая',
+        medium: 'Средняя', 
+        complex: 'Сложная',
+        expert: 'Экспертная'
+    };
+    
+    const projectText = {
+        website: 'Веб-сайт',
+        app: 'Мобильное приложение',
+        bot: 'Telegram бот',
+        api: 'API/Backend',
+        custom: 'Кастомное решение'
+    };
+    
+    const projectType = document.getElementById('projectType').value;
+    const complexity = document.getElementById('complexity').value;
+    
+    resultDiv.innerHTML = `
+        <div class="price-display">$${total.toLocaleString()}</div>
+        <div class="price-breakdown">
+            <p><strong>${projectText[projectType]}</strong> (${complexityText[complexity]})</p>
+            <p>Базовая стоимость: $${base.toLocaleString()}</p>
+            ${addonItems.length > 0 ? `<p>Дополнительно: ${addonItems.join(', ')} - $${addons.toLocaleString()}</p>` : ''}
+            <p>Сроки: ${timeline} дней</p>
+        </div>
+    `;
+    
+    // Анимация появления
+    resultDiv.style.opacity = '0';
+    resultDiv.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        resultDiv.style.transition = 'all 0.5s ease';
+        resultDiv.style.opacity = '1';
+        resultDiv.style.transform = 'translateY(0)';
+    }, 100);
+}
+
+function showPlaceholder() {
+    const resultDiv = document.getElementById('calculatorResult');
+    resultDiv.innerHTML = `
+        <div class="result-placeholder">
+            <i class="fas fa-arrow-up"></i>
+            <p>Выберите параметры для расчета</p>
+        </div>
+    `;
+}
+
+function getDiscount() {
+    const resultDiv = document.getElementById('calculatorResult');
+    const priceDisplay = resultDiv.querySelector('.price-display');
+    
+    if (!priceDisplay) {
+        alert('Сначала рассчитайте стоимость проекта!');
+        return;
+    }
+    
+    const currentPrice = parseInt(priceDisplay.textContent.replace(/[^0-9]/g, ''));
+    const discount = Math.floor(currentPrice * 0.15); // 15% скидка
+    const finalPrice = currentPrice - discount;
+    
+    // Анимация скидки
+    priceDisplay.style.transform = 'scale(1.1)';
+    priceDisplay.style.color = '#10b981';
+    
+    setTimeout(() => {
+        priceDisplay.innerHTML = `
+            <div style="text-decoration: line-through; color: #ef4444; font-size: 1.5rem;">$${currentPrice.toLocaleString()}</div>
+            <div style="color: #10b981; font-size: 2rem;">$${finalPrice.toLocaleString()}</div>
+        `;
+        priceDisplay.style.transform = 'scale(1)';
+        
+        // Показываем код скидки
+        const discountCode = 'CALC15OFF';
+        resultDiv.innerHTML += `
+            <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                <p style="margin: 0; color: #10b981; font-weight: 600;">🎉 Скидка 15% применена!</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-secondary);">Код: <strong>${discountCode}</strong></p>
+            </div>
+        `;
+        
+        // Конфетти эффект
+        showSuccessAnimation();
+    }, 500);
+}

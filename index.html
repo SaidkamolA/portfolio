@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saidkamolxon - веб-разработчик | Портфолио</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="description" content="Saidkamolxon - эксперт веб-разработки с 2+ лет опыта. Создаю сайты, приложения и цифровые решения для бизнеса.">
-    <meta name="keywords" content="веб-разработчик, портфолио, React, Django, Python, FastAPI, Telegram Bot, мобильные приложения">
+    
+    <!-- SEO will be loaded by JavaScript -->
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Albert+Sans:wght@300;400;500;600;700&family=Clash+Display:wght@400;500;600;700&family=General+Sans:wght@300;400;500;600;700&family=Switzer:wght@300;400;500;600;700&family=Chillax:wght@300;400;500;600;700&family=Gambarino:wght@400;500;600;700&family=Sentient:wght@300;400;500;600;700&family=Zodiak:wght@300;400;500;600;700&family=Melodrama:wght@300;400;500;600;700&family=Gambarino:wght@400;500;600;700&family=Sentient:wght@300;400;500;600;700&family=Zodiak:wght@300;400;500;600;700&family=Melodrama:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -45,8 +44,12 @@
                 <li><a href="#portfolio">Портфолио</a></li>
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#experience">Опыт</a></li>
+
                 <li><a href="#contact">Контакты</a></li>
             </ul>
+            <button class="theme-toggle" title="Сменить тему" aria-label="Сменить тему">
+                <span class="theme-icon">🌙</span>
+            </button>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -158,10 +161,7 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2>Обо мне</h2>
-                <p>Познакомьтесь с моим профессиональным путем и страстью к созданию цифровых решений</p>
-            </div>
+
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-intro">
@@ -232,6 +232,29 @@
                             <span class="text">Лет опыта</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote" class="quote">
+        <div class="container">
+            <div class="quote-content">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <blockquote class="quote-text">
+                    <p id="quoteText">"Лучший код — это тот, который легко читать и понимать. Пишите код так, как будто его будет поддерживать психопат, который знает, где вы живете."</p>
+                </blockquote>
+                <div class="quote-author">
+                    <span id="quoteAuthor">— Джон Вудс</span>
+                </div>
+                <div class="quote-actions">
+                    <button class="btn-outline" onclick="changeQuote()">
+                        <i class="fas fa-refresh"></i>
+                        Следующая цитата
+                    </button>
                 </div>
             </div>
         </div>
@@ -419,13 +442,7 @@
                 <p>Лучшие работы, которые демонстрируют мой опыт и креативность</p>
             </div>
             
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">Все проекты</button>
-                <button class="filter-btn" data-filter="web">Веб-сайты</button>
-                <button class="filter-btn" data-filter="bot">Telegram боты</button>
-                <button class="filter-btn" data-filter="mobile">Мобильные приложения</button>
-                <button class="filter-btn" data-filter="api">API</button>
-            </div>
+
             
             <div class="portfolio-grid">
                 <div class="portfolio-item" data-category="web api">
@@ -773,7 +790,7 @@
                         <div class="timeline-header">
                             <h3>INHA UNIVERSITY</h3>
                             <span class="company">Computer Science</span>
-                            <span class="period">2021 - настоящее время</span>
+                            <span class="period">2025 - настоящее время</span>
                         </div>
                         <p>Студент факультета компьютерных наук, изучаю программирование, алгоритмы и структуры данных. Активно участвую в IT проектах университета.</p>
                         <div class="timeline-tech">
@@ -781,6 +798,8 @@
                             <span>Java</span>
                             <span>Algorithms</span>
                             <span>Data Structures</span>
+                            <span>Cybersecurity</span>
+
                         </div>
                     </div>
                 </div>
@@ -877,6 +896,8 @@
         </div>
     </section>
 
+
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -937,5 +958,6 @@
     </button>
 
     <script src="script.js"></script>
+    <script src="seo-loader.js"></script>
 </body>
 </html>
